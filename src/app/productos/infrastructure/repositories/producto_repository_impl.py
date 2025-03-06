@@ -60,8 +60,8 @@ class ProductoRepositoryImpl(ProductoRepository):
         try:
             with connection.cursor() as cursor:
                 # Validar el nombre usando el Value Object antes de la inserción
-                nombre_producto_vo = NombreProducto(valor=producto.nombre)
-                precio_producto_vo = Precio(valor=producto.precio)
+                nombre_producto_vo = NombreProducto(valor=producto.nombre.valor)
+                precio_producto_vo = Precio(valor=producto.precio.valor)
 
                 cursor.execute(
                     """
